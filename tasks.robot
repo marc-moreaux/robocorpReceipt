@@ -10,12 +10,16 @@ Library             Dialogs
 Library             Telnet
 Library             RPA.Archive
 Library             RPA.Robocorp.Process
+Library             RPA.FileSystem
 
 
 *** Tasks ***
 Order all the robots
     ${csv}=    Get CSV
     Open Chrome Browser    http://www.google.com
+    Create Directory    pdfs/
+    Create Directory    pics/
+
     FOR    ${rob}    IN    @{csv}
         Log    ${rob}
         Wait Until Keyword Succeeds
